@@ -3,7 +3,10 @@ const app = express();
 const cors = require("cors");
 const { routes } = require("./routes/routes");
 const { connectDB } = require("./connection/index");
-cors();
+const dotenv = require("dotenv");
+dotenv.config();
+
+app.use(cors());
 app.use(express.json());
 connectDB().then(() => {
   console.log("Connected to MongoDB");
