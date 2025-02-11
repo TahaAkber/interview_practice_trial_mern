@@ -9,7 +9,12 @@ const routes = [
   {
     method: "post",
     path: "/signup",
-    handler: handler.Signuphandler,
-  }
+    handler: handler.Signuploginhandler,
+  },
+  {
+    method: "post",
+    path: "/login",
+    handler: handler.Signuploginhandler,
+  },
 ];
 module.exports = { routes };

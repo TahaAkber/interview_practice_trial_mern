@@ -1,22 +1,30 @@
-const contoller = require("../controller/controller");
-const User = require("../models/USER");
+const controller = require("../controller/controller");
 
 async function Getallusershanlder(req, res) {
-  const result = await contoller.Getallusers();
+  const result = await controller.Getallusers();
   console.log(result);
   res.send(result);
 }
 
-async function Signuphandler(req, res) {
+async function Signuploginhandler(req, res) {
   const data = req.body;
 
-  console.log(data, "DATA");
-  // const checkUser = await User.findOne({ email: data.email });
-  // if (checkUser) {
-  //   res.send("User already exists");
-  // } else {
-
-  // }
+  if (data.method === "signup") {
+    try {
+      const result = await controller.Signup(data);
+      res.send(result);
+      console.log(result);
+    } catch (e) {
+      console.log("Cannot signUp handler -> Signuploginhandler", e);
+    }
+  } else if (data.method === "login") {
+    try {
+      const result = await controller.login(data);
+      res.send(result);
+    } catch (e) {
+      console.log("Cannot login handler -> Signuploginhandler", e);
+    }
+  }
 }
 
-module.exports = { Getallusershanlder, Signuphandler };
+module.exports = { Getallusershanlder, Signuploginhandler };
