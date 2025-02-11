@@ -4,7 +4,7 @@ const cors = require("cors");
 const { routes } = require("./routes/routes");
 const { connectDB } = require("./connection/index");
 cors();
-
+app.use(express.json());
 connectDB().then(() => {
   console.log("Connected to MongoDB");
 });

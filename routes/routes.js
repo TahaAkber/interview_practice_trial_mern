@@ -4,7 +4,12 @@ const routes = [
   {
     method: "get",
     path: "/",
-    handler: handler.taha,
+    handler: handler.Getallusershanlder,
   },
+  {
+    method: "post",
+    path: "/signup",
+    handler: handler.Signuphandler,
+  }
 ];
 module.exports = { routes };
