@@ -6,10 +6,5 @@ const routes = [
     path: "/",
     handler: handler.taha,
   },
-  {
-    method: "get",
-    path: "/about",
-    handler: (req, res) => res.send("About Page"),
-  },
 ];
 module.exports = { routes };
